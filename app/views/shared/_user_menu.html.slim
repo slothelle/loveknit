@@ -1,2 +1,3 @@
-li.nav Hello, #{current_user.first_name}
+li.nav = link_to "#{current_user.first_name}", user_path(current_user.id)
+li.nav = link_to "New Pattern", new_user_pattern(current_user.id)
 li.nav = link_to "Logout", logout_path, method: :delete

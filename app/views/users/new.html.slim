@@ -1,0 +1,9 @@
+= form_for(@user) do |f|
+  = f.text_field :first_name, placeholder: "First name"
+  = f.text_field :last_name, placeholder: "Last name"
+  = f.text_field :ravelry_name, placeholder: "Ravelry name"
+  = f.email_field :email, placeholder: "email@email.com"
+  = f.password_field :password, placeholder: "********"
+  = f.submit "Signup"
+
+a href="/" class="clear small" Nevermind.
