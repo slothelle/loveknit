@@ -1,0 +1,164 @@
+$serif: 'Bitter', Georgia, serif;
+$sanserif: 'Open Sans', Arial, sans-serif;
+$text-color-main: #333333;
+$text-color-darker: #ea0071;
+$nav-spacing: 20px;
+$accent-color-main: #88d8cf;
+$small-font: 0.8em;
+$background-color: #ffffff;
+
+body, html {
+  height: 100%;
+  background: $background-color;
+}
+
+body {
+  font-family: $sanserif;
+  font-size: 1em;
+  font-weight: 400;
+  color: $text-color-main;
+}
+
+p {
+  font-family: $serif;
+  line-height: 1.4em;
+  text-align: justify;
+}
+
+.small {
+  font-size: $small-font;
+}
+
+a {
+  text-decoration: none;
+  color: $text-color-darker;
+  font-weight: 600;
+}
+
+#container {
+  padding-top: 70px;
+  padding-bottom: 20px;
+  width: 700px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+nav {
+  position: fixed;
+  background: $accent-color-main;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  margin: 0 auto;
+  padding: $nav-spacing;
+  font-size: $small-font;
+  -webkit-box-shadow: 0px 2px 2px rgba(50, 50, 50, 0.25);
+  -moz-box-shadow:    0px 2px 2px rgba(50, 50, 50, 0.25);
+  box-shadow:         0px 2px 2px rgba(50, 50, 50, 0.25);
+}
+
+// Invisible box for AJAX login/signup magic
+#emptybox {
+  margin-top: 90px;
+  margin-left: 80px;
+  float: left;
+}
+
+// Nav menu formatting
+.nav {
+  display: inline;
+  margin: 0;
+  ul {
+    padding: 0px;
+  }
+  li {
+    padding-right: $nav-spacing;
+    padding-left: $nav-spacing;
+    border-left: 1px solid black;
+  }
+}
+
+li.first {
+  border-left: 0;
+  display: inline;
+  margin: 0;
+  font-family: 'League Script';
+  font-weight: 700;
+  color: $text-color-darker;
+  font-size: 2em;
+}
+
+li.second {
+  border-left: 0;
+  display: inline;
+  margin: 0;
+  padding-right: $nav-spacing;
+}
+
+// Generic headers
+h1 {
+  font-weight: 800;
+  color: $text-color-darker;
+  font-size: 2.25em;
+}
+
+h3 {
+  font-weight: 700;
+  font-family: $serif;
+  font-size: 1.5em;
+}
+
+// Fancy header
+#title {
+  text-align: center;
+  font-family: 'League Script';
+  font-size: 5em;
+  color: $text-color-darker;
+  margin-bottom: -10px;
+}
+
+// Formats form text boxes
+input {
+  border: 0;
+  background-color: #dddddd;
+  font-size: $small-font;
+  color: $text-color-main;
+  padding: 5px;
+  margin-right: 8px;
+  margin-bottom: 5px;
+}
+
+// Formats JS validation errors for forms
+.error {
+  background: $accent-color-main;
+  font-weight: 700;
+  padding: 3px;
+}
+
+// Separates form elements to make it pretty
+p.separator {
+  border-top: 1px dotted $accent-color-main;
+  padding-top: 20px;
+}
+
+// Accents for pattern views
+.emphasis {
+  font-style: italic;
+  font-weight: 300;
+  font-family: $sanserif;
+}
+
+.subtitle {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.optionalsubtitle {
+  font-weight: 400;
+  font-style: italic;
+}
+
+// Highlight catches attention for TBD items
+.highlight {
+  background: $accent-color-main;
+}

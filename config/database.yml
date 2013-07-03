@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: loveknit_development
+  host: localhost
+
+staging:
+  adapter: postgresql
+  encoding: utf8
+  database: loveknit_staging
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: loveknit_test
+  host: localhost

@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title lovekn.it
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700,800"
+    link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Bitter:400,700,400italic"
+    link href='http://fonts.googleapis.com/css?family=League+Script' rel='stylesheet' type='text/css'
+
+  body
+    nav
+      ul.nav
+        li.first <a href="/">loveKnit</a>
+        - if current_user
+          = render "shared/user_menu"
+        - else
+          = render "shared/anon_menu"
+        li.nav = link_to "About", page_path("about")
+        li.nav = link_to "Contact", page_path("contact")
+        li.nav = link_to "Usage notes", page_path("usage")
+
+    #emptybox
+    #container
+      #body
+        == yield
