@@ -6,13 +6,15 @@
   h1 Generate Hat Pattern
 
   = form_for(:pattern, url: user_patterns_path) do |f|
+    = hidden_field_tag :garment_id, "1"
     p.separator
       = f.label "Pattern name"
     = f.text_field :name, placeholder: "A hat for me!"
 
     p.separator
       = f.label "Needle size"
-      p.highlight TODO
+      br
+      = collection_select(:pattern, :needle_id, @needles, :id, :size, {:prompt => true})
 
     p.separator
       = f.label "Gauge (stockinette or main body motif)"
@@ -28,31 +30,37 @@
     p.small Select carefully! Assumptions are made based on your selection.
 
     = radio_button_tag(:hat_circumference, "13")
-    = label_tag(:hat_circumference_13, "Infant (0-6 months) - 13 inches / 33 cm")
+    = label_tag(:hat_circumference_13, "Infant, 0-6 months (13 inches / 33 cm)")
     br
     = radio_button_tag(:hat_circumference, "15")
-    = label_tag(:hat_circumference_13, "Toddler (6-18 months) - 15 inches / 38 cm")
+    = label_tag(:hat_circumference_15, "Toddler, 6-18 months (15 inches / 38 cm)")
     br
     = radio_button_tag(:hat_circumference, "17")
-    = label_tag(:hat_circumference_13, "Child's small - 17 inches / 43 cm")
+    = label_tag(:hat_circumference_17, "Child's small (17 inches / 43 cm)")
     br
     = radio_button_tag(:hat_circumference, "20")
-    = label_tag(:hat_circumference_13, "Child's medium - 20 inches / 51 cm")
+    = label_tag(:hat_circumference_20, "Child's medium (20 inches / 51 cm)")
     br
     = radio_button_tag(:hat_circumference, "21")
-    = label_tag(:hat_circumference_13, "Child's large or Women's small - 21 inches / 53 cm")
+    = label_tag(:hat_circumference_21, "Child's large or Women's small (21 inches / 53 cm)")
     br
     = radio_button_tag(:hat_circumference, "22")
-    = label_tag(:hat_circumference_13, "Women's medium or Men's small - 22 inches / 56 cm")
+    = label_tag(:hat_circumference_22, "Women's medium or Men's small (22 inches / 56 cm)")
     br
     = radio_button_tag(:hat_circumference, "23")
-    = label_tag(:hat_circumference_13, "Women's large or Men's medium - 23 inches / 58 cm")
+    = label_tag(:hat_circumference_23, "Women's large or Men's medium (23 inches / 58 cm)")
     br
     = radio_button_tag(:hat_circumference, "25")
-    = label_tag(:hat_circumference_13, "Men's large - 25 inches / 63.5 cm")
+    = label_tag(:hat_circumference_25, "Men's large (25 inches / 63.5 cm)")
 
     p.separator
       = f.label "Yarn weight"
-      p.highlight TODO
+      br
+      - @yarn_weights.each do |yarn|
+        = radio_button_tag(:yarn_weight_id, id = yarn.id)
+        = label_tag(:yarn_weight_id_id, "#{yarn.weight}")
+        br
 
     = f.submit "Create"
+
+    p.small By clicking submit, I agree to the #{link_to "terms of use", page_path("usage")}.
