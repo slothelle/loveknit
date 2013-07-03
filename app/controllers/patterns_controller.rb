@@ -17,7 +17,6 @@ class PatternsController < ApplicationController
   end
 
   def show
-    @user = params[:user_id]
     @pattern = Pattern.find(params[:id])
   end
 end
