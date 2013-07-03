@@ -11,7 +11,7 @@ module ApplicationHelper
     session[:current_user_id] = @user.id
   end
 
-  # Move this somewhere else after functionality works
+  # Move below methods somewhere else after functionality works
   def user_patterns(user_id)
     patterns = Pattern.find_all_by_user_id(user_id)
     results = patterns.map do |p|
