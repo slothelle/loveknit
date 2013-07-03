@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(:version => 20130703014513) do
     t.integer  "user_id"
     t.integer  "needle_id"
     t.integer  "garment_id"
-    t.integer  "yarn_id"
     t.integer  "gauge_row_inch"
     t.integer  "gauge_per_inch"
     t.integer  "hat_circumference"
@@ -47,13 +46,6 @@ ActiveRecord::Schema.define(:version => 20130703014513) do
   create_table "yarn_weights", :force => true do |t|
     t.string "weight"
     t.string "yardage_factor"
-  end
-
-  create_table "yarns", :force => true do |t|
-    t.string  "brand"
-    t.integer "yarn_weight_id"
-    t.string  "color"
-    t.integer "yards"
   end
 
 end
