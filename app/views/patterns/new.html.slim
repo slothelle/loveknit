@@ -1,0 +1,58 @@
+- if !current_user
+  p#title Oh no!
+  p Please login or signup to create a pattern.
+
+- else
+  h1 Generate Hat Pattern
+
+  = form_for(:pattern, url: user_patterns_path) do |f|
+    p.separator
+      = f.label "Pattern name"
+    = f.text_field :name, placeholder: "A hat for me!"
+
+    p.separator
+      = f.label "Needle size"
+      p.highlight TODO
+
+    p.separator
+      = f.label "Gauge (stockinette or main body motif)"
+    table width="80%"
+      tr
+        td Number of stitches per inch
+        td Number of rows per inch
+      tr
+        td = f.text_field :gauge_per_inch, placeholder: "4.5"
+        td = f.text_field :gauge_row_inch, placeholder: "5.5"
+
+    p.separator Head circumference (in inches)
+    p.small Select carefully! Assumptions are made based on your selection.
+
+    = radio_button_tag(:hat_circumference, "13")
+    = label_tag(:hat_circumference_13, "Infant (0-6 months) - 13 inches / 33 cm")
+    br
+    = radio_button_tag(:hat_circumference, "15")
+    = label_tag(:hat_circumference_13, "Toddler (6-18 months) - 15 inches / 38 cm")
+    br
+    = radio_button_tag(:hat_circumference, "17")
+    = label_tag(:hat_circumference_13, "Child's small - 17 inches / 43 cm")
+    br
+    = radio_button_tag(:hat_circumference, "20")
+    = label_tag(:hat_circumference_13, "Child's medium - 20 inches / 51 cm")
+    br
+    = radio_button_tag(:hat_circumference, "21")
+    = label_tag(:hat_circumference_13, "Child's large or Women's small - 21 inches / 53 cm")
+    br
+    = radio_button_tag(:hat_circumference, "22")
+    = label_tag(:hat_circumference_13, "Women's medium or Men's small - 22 inches / 56 cm")
+    br
+    = radio_button_tag(:hat_circumference, "23")
+    = label_tag(:hat_circumference_13, "Women's large or Men's medium - 23 inches / 58 cm")
+    br
+    = radio_button_tag(:hat_circumference, "25")
+    = label_tag(:hat_circumference_13, "Men's large - 25 inches / 63.5 cm")
+
+    p.separator
+      = f.label "Yarn weight"
+      p.highlight TODO
+
+    = f.submit "Create"
