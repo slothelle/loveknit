@@ -8,9 +8,11 @@ class PatternsController < ApplicationController
 
   def create
     params[:pattern][:user_id] = current_user.id
+    @yarn_weights = YarnWeight.all
+    @needles = Needle.all
     @pattern = Pattern.new(params[:pattern])
     if @pattern.save
-      redirect_to user_pattern_url(user_id: current_user.id, id: @pattern.id)
+      redirect_to user_pattern_path(user_id: current_user.id, id: @pattern.id)
     else # Error handling TBD
       render :new
     end
