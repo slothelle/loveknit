@@ -11,6 +11,10 @@ module ApplicationHelper
     session[:current_user_id] = @user.id
   end
 
+  def end_session
+    session[:current_user_id] = nil
+  end
+
   # Move below methods somewhere else after functionality works
   def user_patterns(user_id)
     patterns = Pattern.find_all_by_user_id(user_id)
