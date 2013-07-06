@@ -56,8 +56,7 @@ $(document).ready(function() {
       }
     },
     isNumber: function(){},
-    hasContent: function(){},
-    
+    hasContent: function(){}
   };
 
   // Show errors for validations
