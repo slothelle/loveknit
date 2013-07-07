@@ -62,8 +62,10 @@ $(document).ready(function() {
   // Show errors for validations
   var displayError = function(errors) {
     for (var i = 0; i < errors.length; i++) {
-      $('.clear').after(" <span class='error small'>" + errors[i] + "</span>");
-      $('.error').fadeOut(4000);
+      $('.clear').after("<br><span class='error small'>" + errors[i] + "</span>");
+      $('input').on('focus', function() {
+        $('.error').fadeOut(4000);
+      })
     }
   };
 });
