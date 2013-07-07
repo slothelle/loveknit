@@ -11,6 +11,8 @@ describe User do
   it { should validate_presence_of(:email) }
   it { should validate_uniqueness_of(:email) }
   it { should validate_presence_of(:password) }
+  it { should_not allow_value("blah").for(:email) }
+  it { should allow_value("liz@liz.com").for(:email) }
 
   context 'with valid input' do
     it 'should create a user' do
