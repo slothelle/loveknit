@@ -1,4 +1,5 @@
 class PatternsController < ApplicationController
+  include PatternInitializersHelper
   def new
     @user = current_user
     @pattern = Pattern.new
@@ -20,5 +21,7 @@ class PatternsController < ApplicationController
 
   def show
     @pattern = Pattern.find(params[:id])
+    @hat = initialize_and_generate_hat(@pattern)
+    @hat.generate_hat_pattern
   end
 end

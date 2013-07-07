@@ -1,1 +1,87 @@
-p You did it.
+- if current_user
+  h1 == @hat.title
+
+  p.subtitle Pattern Description
+  p
+    |
+      Unisex hat with negative ease along the brim, and a slight slouch to the body (nothing too hipstery). Optional instructions are provided for a regular beanie or a slouchy cap.
+
+  h3 Finished size
+  p
+    |
+      #{@hat.size} inches finished circumference (#{@hat.ease} inch brim circumference with negative ease).
+
+  h3 Needles
+  ul
+    li #{@hat.needle} 16" circular needle
+    li #{@hat.smaller_needle} 16" circular needle (for ribbing)
+
+  h3 Gauge
+  p
+    |
+      #{@hat.per_4} stitches per 4 inches/10 cms, #{@hat.row_4} rows per 4 inches/10 cms.
+
+  h3 Estimated yardage
+  p
+    |
+      My big computer brain calculates that you'll need #{@hat.estimated_yardage} yards/#{@hat.to_meters(@hat.estimated_yardage)} meters of #{@hat.yarn_weight} weight yarn to complete this project.
+  p.emphasis
+    |
+      These are estimates based on your gauge and selected yarn weight. It includes approximately 10% wiggle room.
+
+  h3 Abbreviations
+  ul.abbreviations
+    == @hat.print_abbreviations
+
+  h3 Instructions
+
+  p.subtitle Set Up
+  p
+    |
+      Using #{@hat.smaller_needle}, loosely CO #{@hat.cast_on} sts. PM and join for knitting in the round. Work in #{@hat.ribbing} ribbing for #{@hat.ribbing_rows}. Switch to #{@hat.needle}.
+
+  p For regular hats, proceed to hat body.
+  p For a slouchy hat or a beanie, work the increases or decreases listed below before proceeding to hat body.
+
+  p.optionalsubtitle Increases, slouchy hat: increase evenly to #{@hat.slouch} sts. Proceed to hat body.
+
+  p.optionalsubtitle Decreases, beanie: decrease evenly to #{@hat.beanie} sts. Proceed to hat body.
+
+  p.subtitle Hat Body
+  p
+    |
+      Work in the round in your desired stitch motif for appromxiately #{@hat.body_height}.
+
+
+
+  p.subtitle Crown Decreases
+
+  p.optionalsubtitle Crown Decreases, slouchy hats
+  p
+    |
+      Work first decrease row as: * k#{@hat.slouch_first_decrease}, k2tog, rpt from * to end.<br>
+      Next decrease row: * k#{@hat.slouch_first_decrease-1}, k2tog, rpt from * to end.<br>
+      Continue in this manner until you have #{@hat.cast_on} sts. Begin working from the regular crown decrease instructions (below). You may need to adjust the numbers slightly.
+
+  p.optionalsubtitle Crown Decreases, beanies
+  p
+    |
+      Work the regular crown decrease instructions (below), beginning with the row that starts with k#{@hat.beanie_first_decrease}. You may need to adjust the numbers slightly.
+
+  p.optionalsubtitle Crown Decreases, regular hats
+  <p>
+    == @hat.crown_decreases
+  </p>
+
+
+
+  p
+    |
+      Cinch remaining sts together. Weave in ends and block if desired.
+
+
+- else
+  p#title Whoops!
+  p
+    |
+      It doesn't look like this is your pattern.
