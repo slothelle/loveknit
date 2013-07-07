@@ -1,7 +1,7 @@
 Loveknit::Application.routes.draw do
-  resources :users do
-    resources :patterns
-  end
+  resources :users
+  resources :patterns
+  resources :hat_patterns
 
   resources :sessions, only: [:new, :create, :destroy]
 
