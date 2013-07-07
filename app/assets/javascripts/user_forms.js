@@ -3,6 +3,7 @@ $(document).ready(function() {
   $('a.nav').on('click', function(event) {
     var goTo = $(this).attr('href');
     event.preventDefault();
+    $('#emptybox').empty();
       $.get(goTo, function(response) {
         $('.form').remove();
         $('#emptybox').append(response);
@@ -22,7 +23,7 @@ $(document).ready(function() {
   // Remove login and signup forms
   $('a.clear').on('click', function(event) {
     event.preventDefault();
-    $(this).parent().remove();
+    $(this).parent().empty();
   });
 
   // Validation loop
