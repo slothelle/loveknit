@@ -1,11 +1,11 @@
 $serif: 'Bitter', Georgia, serif;
 $sanserif: 'Open Sans', Arial, sans-serif;
 $text-color-main: #333333;
-$text-color-darker: #ea0071;
-$nav-spacing: 20px;
-$accent-color-main: #88d8cf;
-$small-font: 0.8em;
+$text-color-darker: #DB4105;
+$accent-color-main: #9FB4CC;
 $background-color: #ffffff;
+$nav-spacing: 20px;
+$small-font: 0.8em;
 
 body, html {
   height: 100%;
@@ -82,10 +82,9 @@ li.first {
   border-left: 0;
   display: inline;
   margin: 0;
-  font-family: 'League Script';
+  font-family: $serif;
   font-weight: 700;
   color: $text-color-darker;
-  font-size: 2em;
 }
 
 li.second {
@@ -111,8 +110,8 @@ h3 {
 // Fancy header
 #title {
   text-align: center;
-  font-family: 'League Script';
-  font-size: 5em;
+  font-family: $serif;
+  font-size: 3em;
   color: $text-color-darker;
   margin-bottom: -10px;
 }
