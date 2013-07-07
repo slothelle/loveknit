@@ -1,9 +1,9 @@
 class Pattern < ActiveRecord::Base
   belongs_to :user
-  belongs_to :needle
+  belongs_to :hat_pattern
   belongs_to :garment
-  belongs_to :yarn_weight
-  attr_accessible :name, :gauge_row_inch, :gauge_per_inch, :hat_circumference, :user_id, :needle_id, :garment_id, :yarn_weight_id
 
-  validates_presence_of :name, :gauge_per_inch, :gauge_row_inch, :hat_circumference, :user_id, :needle_id, :garment_id, :yarn_weight_id
+  attr_accessible :user_id, :hat_pattern_id, :garment_id, :user, :hat_pattern, :garment
+  validates_presence_of :user_id, :garment_id
+  validates_presence_of :hat_pattern_id, :on => :update
 end
