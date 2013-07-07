@@ -6,7 +6,8 @@ p
     Name: #{@user.first_name} #{@user.last_name} <br>
     Ravelry name: #{@user.ravelry_name} <br>
     Email: #{@user.email} <br>
-= link_to "Edit your profile", edit_user_path(@user.id), { class: "small" }
+- if current_user.id == @user.id
+  = link_to "Edit your profile", edit_user_path(@user.id), { class: "small" }
 
 p.separator
 
@@ -18,8 +19,9 @@ h3 Your patterns
       <div class="section">
         <div class="col span_1_of_2">
           p#pattern #{link_to "#{pattern.name}", user_pattern_path(user_id: @user.id, id: pattern.id)} <br>
-          = link_to "Edit ", edit_user_pattern_path(user_id: @user.id, id: pattern.id), {class: "small"}
-          = link_to "Delete", user_pattern_path(user_id: @user.id, id: pattern.id), {method: :delete, class: "small"}
+          - if current_user.id == @user.id
+            = link_to "Edit ", edit_user_pattern_path(user_id: @user.id, id: pattern.id), {class: "small"}
+            = link_to "Delete", user_pattern_path(user_id: @user.id, id: pattern.id), {method: :delete, class: "small"}
           p
             |
               Type: #{pattern.garment.category} <br>
@@ -31,8 +33,9 @@ h3 Your patterns
     - else
       <div class="col span 1_of_2">
         p#pattern #{link_to "#{pattern.name}", user_pattern_path(user_id: @user.id, id: pattern.id)} <br>
-        = link_to "Edit ", edit_user_pattern_path(user_id: @user.id, id: pattern.id), {class: "small"}
-        = link_to "Delete", user_pattern_path(user_id: @user.id, id: pattern.id), {method: :delete, class: "small"}
+        - if current_user.id == @user.id
+          = link_to "Edit ", edit_user_pattern_path(user_id: @user.id, id: pattern.id), {class: "small"}
+          = link_to "Delete", user_pattern_path(user_id: @user.id, id: pattern.id), {method: :delete, class: "small"}
         p
           |
             Type: #{pattern.garment.category} <br>
