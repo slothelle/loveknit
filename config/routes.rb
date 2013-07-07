@@ -5,9 +5,9 @@ Loveknit::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  match '/signup',  to: 'users#new'
-  match '/login',   to: 'sessions#new'
-  match '/logout',  to: 'sessions#destroy', via: :delete
+  get     '/signup',   to: 'users#new'
+  get     '/login',    to: 'sessions#new'
+  delete  '/logout',   to: 'sessions#destroy'
 
   root :to => 'high_voltage/pages#show', :id => 'home'
 
