@@ -1,7 +1,46 @@
-p#title #{@user.first_name}
+h1 Hello, #{@user.first_name}
 
-p.highlight This page is super ugly, sorry. Coming soon!
+h3 Your information
+p
+  |
+    Name: #{@user.first_name} #{@user.last_name} <br>
+    Ravelry name: #{@user.ravelry_name} <br>
+    Email: #{@user.email} <br>
+= link_to "Edit your profile", edit_user_path(@user.id), { class: "small" }
+
+p.separator
+
+h3 Your patterns
 
 - if @patterns
-  - @patterns.each do |pattern|
-    = link_to "#{pattern.name}", user_pattern_path(user_id: @user.id, id: pattern.id)
+  - @patterns.each_with_index do |pattern, num|
+    - if num == 0 || num % 2 == 0
+      <div class="section">
+        <div class="col span_1_of_2">
+          p#pattern #{link_to "#{pattern.name}", user_pattern_path(user_id: @user.id, id: pattern.id)} <br>
+          = link_to "Edit ", edit_user_pattern_path(user_id: @user.id, id: pattern.id), {class: "small"}
+          = link_to "Delete", user_pattern_path(user_id: @user.id, id: pattern.id), {method: :delete, class: "small"}
+          p
+            |
+              Type: #{pattern.garment.category} <br>
+              Size: #{pattern.hat_circumference} inches <br>
+              Gauge: #{pattern.gauge_per_inch} sts per inch, #{pattern.gauge_row_inch} rows per inch <br>
+              Needle: #{pattern.needle.size}<br>
+              Yarn weight: #{pattern.yarn_weight.weight} <br>
+        </div>
+    - else
+      <div class="col span 1_of_2">
+        p#pattern #{link_to "#{pattern.name}", user_pattern_path(user_id: @user.id, id: pattern.id)} <br>
+        = link_to "Edit ", edit_user_pattern_path(user_id: @user.id, id: pattern.id), {class: "small"}
+        = link_to "Delete", user_pattern_path(user_id: @user.id, id: pattern.id), {method: :delete, class: "small"}
+        p
+          |
+            Type: #{pattern.garment.category} <br>
+            Size: #{pattern.hat_circumference} inches <br>
+            Gauge: #{pattern.gauge_per_inch} sts per inch, #{pattern.gauge_row_inch} rows per inch <br>
+            Needle: #{pattern.needle.size}<br>
+            Yarn weight: #{pattern.yarn_weight.weight} <br>
+      </div>
+      </div>
+- else
+  p You don't have any patterns yet! You should #{link_to "make one", new_user_pattern_path(@user.id)}.
