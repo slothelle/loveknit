@@ -8,8 +8,8 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       create_session
-      redirect_to user_path(@user.id)
-    else # Error handling needed
+      redirect_to @user
+    else
       redirect_to root_path
     end
   end
@@ -17,5 +17,16 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @patterns = @user.patterns
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    params[:user][:password] = @user.password
+    @user.update_attributes(params[:user])
+    redirect_to user_path(params[:id])
   end
 end

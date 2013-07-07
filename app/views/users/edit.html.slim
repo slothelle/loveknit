@@ -1,0 +1,18 @@
+= form_for(@user) do |f|
+  = f.label :first_name, "First name"
+  br
+  = f.text_field :first_name, placeholder: "First name"
+  p
+  = f.label :last_name, "Last name"
+  br
+  = f.text_field :last_name, placeholder: "Last name"
+  p
+  = f.label :ravelry_name, "Ravelry name"
+  br
+  = f.text_field :ravelry_name, placeholder: "Ravelry name"
+  p
+  = f.label :email, "Email"
+  br
+  = f.email_field :email, placeholder: "email@email.com"
+  p
+  = f.submit "Update"
