@@ -1,12 +1,13 @@
-$serif: 'Bitter', Georgia, serif;
-$sanserif: 'Open Sans', Arial, sans-serif;
+$sanserif: 'Merriweather', Arial, sans-serif;
 $text-color-main: #333333;
-$text-color-darker: #DB4105;
-$accent-color-main: #9FB4CC;
+$text-color-darker: #01A2A6;
+$accent-color-main: #29D9C2;
 $background-color: #ffffff;
-$nav-spacing: 20px;
+$nav-spacing: 10px;
 $small-font: 0.8em;
 
+
+// Core styles
 body, html {
   height: 100%;
   background: $background-color;
@@ -20,8 +21,8 @@ body {
 }
 
 p {
-  font-family: $serif;
-  line-height: 1.4em;
+  font-family: $sanserif;
+  line-height: 1.7em;
   text-align: justify;
 }
 
@@ -43,28 +44,32 @@ a {
   z-index: 1;
 }
 
-nav {
-  position: fixed;
-  background: $accent-color-main;
-  width: 100%;
-  top: 0px;
-  left: 0px;
-  margin: 0 auto;
-  padding: $nav-spacing;
-  font-size: $small-font;
-  -webkit-box-shadow: 0px 2px 2px rgba(50, 50, 50, 0.25);
-  -moz-box-shadow:    0px 2px 2px rgba(50, 50, 50, 0.25);
-  box-shadow:         0px 2px 2px rgba(50, 50, 50, 0.25);
-}
-
 // Invisible box for AJAX login/signup magic
 #emptybox {
-  margin-top: 90px;
-  margin-left: 80px;
-  float: left;
+  padding: $nav-spacing;
 }
 
 // Nav menu formatting
+nav {
+  position: fixed;
+  background-color: $background-color;
+  width: 100%;
+  top: 3px;
+  left: 0px;
+  padding: $nav-spacing;
+  font-size: $small-font;
+  border-top: 3px solid $accent-color-main;
+}
+
+.topborder {
+  position: fixed;
+  padding: $nav-spacing;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  border-top: 3px solid $text-color-darker;
+}
+
 .nav {
   display: inline;
   margin: 0;
@@ -74,52 +79,47 @@ nav {
   li {
     padding-right: $nav-spacing;
     padding-left: $nav-spacing;
-    border-left: 1px solid black;
+  }
+  a {
+    color: $text-color-main;
+    font-weight: 400;
+    padding: 5px;
+  }
+  a:hover {
+    background-color: $accent-color-main;
+    padding: 5px;
   }
 }
 
-li.first {
-  border-left: 0;
-  display: inline;
-  margin: 0;
-  font-family: $serif;
-  font-weight: 700;
-  color: $text-color-darker;
-}
-
-li.second {
-  border-left: 0;
-  display: inline;
-  margin: 0;
-  padding-right: $nav-spacing;
-}
-
-// Generic headers
+// Headers
 h1 {
   font-weight: 800;
   color: $text-color-darker;
-  font-size: 2.25em;
+}
+
+h1#title {
+  font-weight: 900;
+  font-size: 4em;
+  color: $accent-color-main;
+  text-align: center;
 }
 
 h3 {
   font-weight: 700;
-  font-family: $serif;
-  font-size: 1.5em;
+  font-family: $sanserif;
 }
 
-// Fancy header
-#title {
-  text-align: center;
-  font-family: $serif;
-  font-size: 3em;
+#pattern {
   color: $text-color-darker;
   margin-bottom: -10px;
+  margin-top: -10px;
+  font-size: 1.5em;
 }
 
 // Formats form text boxes
 input {
-  border: 0;
-  background-color: #dddddd;
+  border: 1px solid $text-color-main;
+  font-family: $sanserif;
   font-size: $small-font;
   color: $text-color-main;
   padding: 5px;

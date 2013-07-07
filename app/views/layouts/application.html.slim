@@ -5,14 +5,13 @@ html
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
-    link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700,800"
-    link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Bitter:400,700,400italic"
-    link href='http://fonts.googleapis.com/css?family=League+Script' rel='stylesheet' type='text/css'
+    link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,900"
 
   body
+    .topborder
     nav
       ul.nav
-        li.first <a href="/">loveKnit</a>
+        li.nav <a href="/">loveKnit</a>
         - if current_user
           = render "shared/user_menu"
         - else
@@ -21,7 +20,14 @@ html
         li.nav = link_to "Contact", page_path("contact")
         li.nav = link_to "Usage", page_path("usage")
 
-    #emptybox
-    #container
-      #body
-        == yield
+    .section
+      div class="col span_1_of_5"
+      div class="col span_3_of_5"
+        h1#title lovekn.it
+      div class="col span_1_of_5"
+    .section
+      div class="col span_1_of_5" id="emptybox"
+      div class="col span_3_of_5"
+        #body
+          == yield
+      div class="col span_1_of_5"
