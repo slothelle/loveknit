@@ -24,4 +24,10 @@ class PatternsController < ApplicationController
     @hat = initialize_and_generate_hat(@pattern)
     @hat.generate_hat_pattern
   end
+
+  def destroy
+    @pattern = Pattern.find(params[:id])
+    @pattern.destroy
+    redirect_to user_path(params[:user_id])
+  end
 end
