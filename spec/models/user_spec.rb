@@ -20,16 +20,4 @@ describe User do
       expect(person).to be_instance_of(User)
     end
   end
-
-  context 'with invalid input' do
-    it 'should not create a user without a password' do
-      person = User.create(email: "banana@taco.com")
-      expect(person.id).to be(nil)
-    end
-
-    it 'should not create a user without an email' do
-      person = User.create(password: "password")
-      expect(person.id).to be(nil)
-    end
-  end
 end
