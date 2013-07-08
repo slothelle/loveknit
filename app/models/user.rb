@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
   has_many :patterns
+  has_many :hat_patterns, :through => :patterns
 
   validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
   validates_uniqueness_of :email, :on => :create

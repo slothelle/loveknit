@@ -3,6 +3,7 @@ require 'spec_helper'
 describe User do
   it { should be_instance_of(User) }
   it { should have_many(:patterns) }
+  it { should have_many(:hat_patterns).through(:patterns) }
   it { should allow_mass_assignment_of(:first_name) }
   it { should allow_mass_assignment_of(:last_name) }
   it { should allow_mass_assignment_of(:ravelry_name) }

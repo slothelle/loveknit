@@ -11,10 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130706005548) do
+ActiveRecord::Schema.define(:version => 20130707233250) do
 
-  create_table "garments", :force => true do |t|
-    t.string "category"
+  create_table "hat_patterns", :force => true do |t|
+    t.string   "title"
+    t.integer  "pattern_id"
+    t.integer  "needle_id"
+    t.integer  "yarn_weight_id"
+    t.integer  "gauge_row_inch"
+    t.integer  "gauge_per_inch"
+    t.integer  "circumference"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "needles", :force => true do |t|
@@ -22,16 +30,10 @@ ActiveRecord::Schema.define(:version => 20130706005548) do
   end
 
   create_table "patterns", :force => true do |t|
-    t.string   "name"
     t.integer  "user_id"
-    t.integer  "needle_id"
-    t.integer  "garment_id"
-    t.integer  "gauge_row_inch"
-    t.integer  "gauge_per_inch"
-    t.integer  "hat_circumference"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-    t.integer  "yarn_weight_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "hat_pattern_id"
   end
 
   create_table "users", :force => true do |t|

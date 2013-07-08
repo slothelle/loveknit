@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @hats = @user.hat_patterns
     @patterns = @user.patterns
   end
 
