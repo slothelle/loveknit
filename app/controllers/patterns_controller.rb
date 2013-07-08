@@ -15,7 +15,7 @@ class PatternsController < ApplicationController
     if @pattern.save
       redirect_to user_pattern_path(user_id: current_user.id, id: @pattern.id)
     else # Error handling TBD
-      render :new
+      redirect_to new_user_pattern_path
     end
   end
 
