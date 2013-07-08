@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130707222534) do
-
-  create_table "garments", :force => true do |t|
-    t.string "category"
-  end
+ActiveRecord::Schema.define(:version => 20130707233250) do
 
   create_table "hat_patterns", :force => true do |t|
     t.string   "title"
@@ -35,7 +31,6 @@ ActiveRecord::Schema.define(:version => 20130707222534) do
 
   create_table "patterns", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "garment_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.integer  "hat_pattern_id"

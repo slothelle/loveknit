@@ -28,7 +28,5 @@ namespace :db do
     YarnWeight.create(weight: 'Aran', yardage_factor: 0.9)
     YarnWeight.create(weight: 'Bulky', yardage_factor: 0.7)
     YarnWeight.create(weight: 'Super Bulky', yardage_factor: 0.4)
-    Garment.create(category: 'Hat')
-    Garment.create(category: 'Shawl (Triangle)')
   end
 end

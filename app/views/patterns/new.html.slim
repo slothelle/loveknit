@@ -1,69 +1,10 @@
 - if !current_user
   h1 Oh no!
-  p Please login or signup to create a pattern.
+  p Please #{link_to "login", login_path, {class: "nav"}} or #{link_to "signup", signup_path, {class: "nav"}} to create a pattern.
 
 - else
-  h1 Generate Hat Pattern
+  h1 Garment Type
 
-  = form_for(:pattern, url: user_patterns_path) do |f|
-    = hidden_field(:pattern, :garment_id, options = {value: "1"})
-    p.separator
-      = f.label "Pattern name"
-    = f.text_field :name, placeholder: "A hat for me!", required: true
+  p.highlight Make this page nicer
 
-    p.separator
-      = f.label "Needle size"
-      br
-      - @needles.each do |needle|
-        = radio_button(:pattern, :needle_id, id = needle.id)
-        = label(:pattern, :needle_id_id, "#{needle.size}")
-        br
-
-    p.separator
-      = f.label "Gauge (stockinette or main body motif)"
-    table width="80%"
-      tr
-        td Number of stitches per inch
-        td Number of rows per inch
-      tr
-        td = f.text_field :gauge_per_inch, placeholder: "4.5"
-        td = f.text_field :gauge_row_inch, placeholder: "5.5"
-
-    p.separator Head circumference (in inches)
-    p.small Select carefully! Assumptions are made based on your selection.
-
-    = radio_button(:pattern, :hat_circumference, "13")
-    = label(:pattern, :hat_circumference_13, "Infant, 0-6 months (13 inches / 33 cm)")
-    p
-    = radio_button(:pattern, :hat_circumference, "15")
-    = label(:pattern, :hat_circumference_15, "Toddler, 6-18 months (15 inches / 38 cm)")
-    p
-    = radio_button(:pattern, :hat_circumference, "17")
-    = label(:pattern, :hat_circumference_17, "Child's small (17 inches / 43 cm)")
-    p
-    = radio_button(:pattern, :hat_circumference, "20")
-    = label(:pattern, :hat_circumference_20, "Child's medium (20 inches / 51 cm)")
-    p
-    = radio_button(:pattern, :hat_circumference, "21")
-    = label(:pattern, :hat_circumference_21, "Child's large or Women's small (21 inches / 53 cm)")
-    p
-    = radio_button(:pattern, :hat_circumference, "22")
-    = label(:pattern, :hat_circumference_22, "Women's medium or Men's small (22 inches / 56 cm)")
-    p
-    = radio_button(:pattern, :hat_circumference, "23")
-    = label(:pattern, :hat_circumference_23, "Women's large or Men's medium (23 inches / 58 cm)")
-    p
-    = radio_button(:pattern, :hat_circumference, "25")
-    = label(:pattern, :hat_circumference_25, "Men's large (25 inches / 63.5 cm)")
-
-    p.separator
-      = f.label "Yarn weight"
-      br
-      - @yarn_weights.each do |yarn|
-        = radio_button(:pattern, :yarn_weight_id, id = yarn.id)
-        = label(:pattern, :yarn_weight_id_id, "#{yarn.weight}")
-        br
-
-    = f.submit "Create"
-
-    p.small By clicking submit, I agree to the #{link_to "terms of use", page_path("usage")}.
+  = link_to "Hat", new_hat_pattern_path

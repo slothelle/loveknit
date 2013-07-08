@@ -12,7 +12,7 @@ class PatternGenerator
     @row_1 = user_input[:gauge_row_inch]
     @per_1 = user_input[:gauge_per_inch]
     @yarn_weight = YarnWeight.find(user_input[:yarn_weight_id])
-    @hat_circumference = user_input[:hat_circumference]
+    @hat_circumference = user_input[:circumference]
   end
 
   def needle
