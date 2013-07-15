@@ -1,8 +1,10 @@
+= render "shared/errors"
+
 = form_for(:session, url: sessions_path) do |f|
   = f.email_field :email, placeholder: "email@email.com"
   p
   = f.password_field :password, placeholder: "********"
   p
-  = f.submit "Signup"
+  = f.submit "Login"
 
 a href="/" class="clear small" Nevermind.
