@@ -9,8 +9,12 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       create_session
       redirect_to user_path(@user.id)
-    else # Error handling needed
-      redirect_to root_path
+    elsif @user.nil?
+      @errors = "An account with the email address #{params[:session][:email]} not found."
+      render "new"
+    else
+      @errors = "Wrong password."
+      render "new"
     end
   end
 
