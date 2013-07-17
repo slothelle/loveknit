@@ -15,6 +15,10 @@ FactoryGirl.define do
     size "US 6 (4.0 mm)"
   end
 
+  factory :another_needle, parent: :needle do
+    size "US 7 (4.5 mm)"
+  end
+
   factory :yarn_weight do
     weight          "Aran"
     yardage_factor  "1.2"
